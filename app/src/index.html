@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/fetchUsers.js" defer></script>
+    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+        <fieldset>
+            <legend>Cadastro de Usuário</legend>
+            <ul>
+                <li>
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" placeholder="John Doe">
+                </li>
+                <li>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="example@email.com">
+                </li>
+                <li>
+                    <label for="birthday">Data de nascimento:</label>
+                    <input type="date" id="birthday">
+                </li>
+                <li class="button">
+                    <button type="submit">ENVIAR</button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+
+    <table id="user_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Data de nascimento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+
+</html>
