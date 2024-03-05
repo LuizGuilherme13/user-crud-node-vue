@@ -1,12 +1,20 @@
 const express = require('express')
 const app = express()
 const cors = require('cors');
-const { db } = require('./database/conn')
+const bodyParser = require('body-parser')
 const routes = require('./routes')
 
 const PORT = 3000
 
-app.use(cors())
+const corsOptions = {
+    origin: '*',
+    methods: 'GET, POST, PUT, PATCH, DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
+}; PORT
+
+app.use(cors(corsOptions))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routes)
 
 app.listen(PORT, () => {

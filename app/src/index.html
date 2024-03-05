@@ -4,20 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/js/fetchUsers.js" defer></script>
+    <script src="/js/getUsers.js" defer></script>
+    <script src="/js/populateTable.js" defer></script>
+    <script src="/js/addUser.js" defer></script>
     <script src="/js/script.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous">
+    <title>Simple User CRUD</title>
 </head>
 
 <body>
-
-    <form action="">
+    <form id="form">
         <fieldset>
-            <legend>Cadastro de Usuário</legend>
+            <legend>User sign-up</legend>
             <ul>
                 <li>
-                    <label for="name">Nome:</label>
+                    <label for="name">Name:</label>
                     <input type="text" id="name" placeholder="John Doe">
                 </li>
                 <li>
@@ -25,11 +28,11 @@
                     <input type="email" id="email" placeholder="example@email.com">
                 </li>
                 <li>
-                    <label for="birthday">Data de nascimento:</label>
+                    <label for="birthday">Birthday:</label>
                     <input type="date" id="birthday">
                 </li>
                 <li class="button">
-                    <button type="submit">ENVIAR</button>
+                    <button type="submit">SUBMIT</button>
                 </li>
             </ul>
         </fieldset>
@@ -39,10 +42,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nome</th>
+                <th>Name</th>
                 <th>Email</th>
-                <th>Data de nascimento</th>
-                <th>Ações</th>
+                <th>Birthday</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>

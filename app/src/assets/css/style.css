@@ -57,8 +57,7 @@ table {
     margin: 0 auto;
     background-color: #E8E2D2;
     margin-top: 1em;
-    width: 90%;
-
+    width: 70%;
 }
 
 tr:nth-child(even) {
@@ -71,6 +70,7 @@ th {
 }
 
 tbody tr td {
+    text-align: center;
     border: 1px solid #7c7c7c;
 }
 

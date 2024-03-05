@@ -1,8 +1,6 @@
-const tableBody = document.querySelector('#user_list tbody')
-
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const users = await fetchUsers()
+        const users = await getUsers()
 
         if (users.length > 0) {
             populateTable(users)
@@ -12,26 +10,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 })
 
-const populateTable = (users) => {
-    tableBody.innerHTML = ''
+document.getElementById('form').addEventListener('submit', async (event) => {
+    event.preventDefault()
 
-    for (const user of users) {
-        const row = document.createElement('tr')
+    let userName = document.getElementById('name').value
+    let userEmail = document.getElementById('email').value
+    let userBirthday = document.getElementById('birthday').value
 
-        row.innerHTML = `
-            <td>${user.id}</td>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.birthday}</td>
-            <td>
-                <button onclick='editUser(this)'>
-                    <i class="fa-regular fa-pen-to-square"></i>
-                </button>
-                <button onclick='deleteUser(this)'>
-                    <i class="fa-light fa-x" style="color: red;"></i>
-                </button>
-            </td>
-        `
-        tableBody.appendChild(row)
+    let user = { name: userName, email: userEmail, birthday: userBirthday }
+    try {
+        const response = await addUser(user)
+
+        if (response.status == 201) {
+            const users = await getUsers()
+            populateTable(users)
+        }
+
+    } catch (error) {
+        console.error(error);
     }
-}
+})

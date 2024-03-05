@@ -1,4 +1,4 @@
-async function fetchUsers() {
+async function getUsers() {
     try {
         const response = await fetch('http://localhost:3000/users')
         const data = await response.json()
@@ -9,4 +9,4 @@ async function fetchUsers() {
     }
 }
 
-window.fetchUsers = fetchUsers
+window.getUsers = getUsers
