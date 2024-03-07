@@ -10,3 +10,5 @@ async function addUser(params) {
         throw error
     }
 }
+
+window.addUser = addUser

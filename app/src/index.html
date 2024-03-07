@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/btnEditUser.js" defer></script>
     <script src="/js/getUsers.js" defer></script>
-    <script src="/js/populateTable.js" defer></script>
     <script src="/js/addUser.js" defer></script>
+    <script src="/js/editUser.js" defer></script>
+    <script src="/js/deleteUser.js" defer></script>
+    <script src="/js/populateTable.js" defer></script>
     <script src="/js/script.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -19,6 +22,7 @@
         <fieldset>
             <legend>User sign-up</legend>
             <ul>
+                <input id="user_id" type="number">
                 <li>
                     <label for="name">Name:</label>
                     <input type="text" id="name" placeholder="John Doe">

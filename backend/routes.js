@@ -24,11 +24,45 @@ router.post('/users', async (req, res) => {
     }
 
     client.query(query, (error, result) => {
+        if (error) throw error
+
+        client.release()
+        res.status(201).json(result.rows[0])
+    })
+})
+
+router.patch('/users/:id', async (req, res) => {
+    const id = req.params.id
+    const { name, email, birthday } = req.body
+
+    const client = await db.connect()
+    const query = {
+        text: 'UPDATE user_account SET name = $1, email = $2, birthday = $3 WHERE id = $4',
+        values: [name, email, birthday, id]
+    }
+
+    client.query(query, (error, _) => {
         if (error) {
             throw error
         }
+
         client.release()
-        res.status(201).json(result.rows[0])
+        res.status(200).send({})
+    })
+})
+
+router.delete('/users/:id', async (req, res) => {
+    const id = req.params.id
+
+    const client = await db.connect()
+
+    client.query('DELETE FROM user_account  WHERE id = $1', [id], (error, _) => {
+        if (error) {
+            throw error
+        }
+
+        client.release()
+        res.status(200).send({})
     })
 })
 
