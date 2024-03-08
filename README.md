@@ -25,6 +25,17 @@ npm install
 
 ## Uso
 
+Com o PostgreSQL instalado, crie a seguinte table:
+
+```
+CREATE TABLE IF NOT EXISTS user_account (
+	id serial PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	birthday DATE NOT NULL
+)
+```
+
 1. Na raiz do projeto, renomeie o arquivo '.env.example' para '.env', e coloque as informações da sua conexão com o banco de dados.
 
 2. Para iniciar o servidor backend, execute o seguinte comando:
